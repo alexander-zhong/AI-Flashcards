@@ -1,6 +1,3 @@
-Based on the instructions you provided, here's the complete `page.js` file for the `generate` directory:
-
-```javascript
 'use client'
 
 import { useState } from 'react'
