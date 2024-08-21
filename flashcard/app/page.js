@@ -17,6 +17,7 @@ import {
   CardContent,
 } from "@mui/material";
 import { doc, collection, getDoc, writeBatch } from "firebase/firestore";
+import db from "./firebase";
 
 export default function Generate() {
   // Flash card
