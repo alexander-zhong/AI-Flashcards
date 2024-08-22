@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const systemPrompt = `
 You are a flashcard creator, you take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards.
 Both front and back should be one sentence long.
-You should return in the following JSON format:
+You should return in the following JSON format and make the output STRICT JSON format without additional text (IMPORTANT):
 {
   "flashcards":[
     {
@@ -16,7 +16,6 @@ You should return in the following JSON format:
 `;
 
 export async function POST(req) {
-  const openai = new OpenAI();
   const data = await req.text();
 
   try {
@@ -28,7 +27,7 @@ export async function POST(req) {
       `${systemPrompt} and this is user input ${data}`
     );
 
-    const jsonObject = JSON.parse(result.text());
+    const jsonObject = JSON.parse(result.response.text());
 
     return NextResponse.json(jsonObject);
   } catch (err) {
