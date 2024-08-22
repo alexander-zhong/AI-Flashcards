@@ -37,7 +37,10 @@ export default function Generate() {
         </Button>
       </Box>
 
-      {/* We'll add flashcard display here */}
+
+    
     </Container>
   );
 }
+
+
